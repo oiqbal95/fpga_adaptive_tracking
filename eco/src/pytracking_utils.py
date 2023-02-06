@@ -74,6 +74,14 @@ def _read_image(image_file: str,preprocessing_step):
         elif preprocessing_step=='noise':
             img = cv2.imread(image_file)
             im = noisy('gauss',img)
+        elif preprocessing_step=='roi':
+            roi_x = 500
+            roi_y = 200
+            roi_w = 30
+            roi_h = 30
+            img = cv2.imread(image_file)
+            im = np.zeros([img.shape[0],img.shape[1],img.shape[2]],dtype=np.uint8)
+            im[240:290,490:550,:] = img[240:290,490:550,:]
         else:
             im = cv2.imread(image_file)
         return cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
