@@ -39,7 +39,8 @@ def app(image_dir,threads,model, seq: Sequence, key_frames = 5):
     for frame_num in range(len(listimage)):
         # First frame: Initialize ECO, Create Kalman Filter
         if frame_num == 0: 
-            #Read image - 2nd argument can be one of the following - "noise", "quantization" or "normal"
+            #Read image - 2nd argument can be one of the following - "noise", "quantization", "roi" or "normal". TO modify the tuning parameters
+            #go to the _read_image function in src.pytracking_utils
             image = _read_image(os.path.join(image_dir,listimage[frame_num]),'normal')
 
             #Get initial info of sequence
