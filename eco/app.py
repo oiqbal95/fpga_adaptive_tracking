@@ -92,7 +92,7 @@ def app(image_dir,threads,model, seq: Sequence, key_frames = 5):
         # Key frame: Update Kalman Filter
         elif frame_num>0 and frame_num%key_frames==0:
             #Read image
-            image = _read_image(os.path.join(image_dir,listimage[frame_num]))
+            image = _read_image(os.path.join(image_dir,listimage[frame_num]),'normal')
 
             #Get info
             info = seq.frame_info(frame_num)
